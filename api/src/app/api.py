@@ -1,6 +1,7 @@
 
 from flask import Flask
 from flask_restful import reqparse, abort, Api, Resource
+from match import match
 
 app = Flask(__name__)
 api = Api(app)
@@ -18,6 +19,7 @@ def abort_if_word_doesnt_exist(word_id):
 
 parser = reqparse.RequestParser()
 parser.add_argument('word')
+parser.add_argument('pattern')
 
 
 # # Todo
@@ -38,9 +40,19 @@ parser.add_argument('word')
 #         TODOS[todo_id] = task
 #         return task, 201
 
+class FilterWord(Resource):
+    def get(self):
+        args = parser.parse_args()
+        pattern=args['pattern']
+        for id in WORDS:
+            word=(WORDS[id]['word'])
+            if match(pattern,word):
+                return word,201
 
-# TodoList
-# shows a list of all todos, and lets you POST to add new tasks
+
+
+# WordList
+# shows a list of all word, and lets you POST to add new words
 class WordList(Resource):
     def get(self):
         return WORDS
@@ -51,12 +63,14 @@ class WordList(Resource):
         word_id = 'word%i' % word_id
         WORDS[word_id] = {'word': args['word']}
         return WORDS[word_id], 201
+    
 
+    
 ##
 ## Actually setup the Api resource routing here
 ##
 api.add_resource(WordList, '/words')
-# api.add_resource(Todo, '/todos/<todo_id>')
+api.add_resource(FilterWord, '/words/filter')
 
 
 if __name__ == '__main__':
