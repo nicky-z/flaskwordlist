@@ -1,5 +1,0 @@
-HOST = 'localhost'
-PORT = '5432'
-DBUSER = 'nicky'
-DBPASSWORD = '399sunshine'
-DATABASE = 'wordlist'

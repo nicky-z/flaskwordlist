@@ -14,5 +14,6 @@ def match(pattern, string):
 
     if pattern == string == '':
         return True
+    
 
     return False
