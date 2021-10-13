@@ -36,6 +36,17 @@ function App() {
   )}
 }
 
+function handleFilter(event) {
+  event.preventDefault();
+ console.log('FILTER', filter)
+ if(filter!== '') {
+ axios.get("/words/filter", {"pattern": filter}).then(
+   ({data})=>{
+     console.log('data from backend', data)
+    //  window.location.reload()
+   }
+ )}
+}
 
 const listOfWords = words.map((word,idx) => <p key={idx}>{word}</p>);
 
@@ -59,7 +70,7 @@ const listOfWords = words.map((word,idx) => <p key={idx}>{word}</p>);
           placeholder = "filter for..."
           onChange={(evt) =>{setFilter(evt.target.value)}}
          />
-         <button className="button" onClick={handleSubmit}> Filter </button>
+         <button className="button" onClick={handleFilter}> Filter </button>
     </form>
     </div>
     </div>

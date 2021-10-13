@@ -97,7 +97,8 @@ span {
   /* border: 2px solid #6a9fb3; */
 
 }
-@keyframes App-logo-spin {cd ~/.ssh
+
+/* @keyframes App-logo-spin {cd ~/.ssh
   ssh-keygen
   from {
     transform: rotate(0deg);
@@ -105,5 +106,5 @@ span {
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
