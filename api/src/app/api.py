@@ -12,42 +12,27 @@ WORDS = {
     'word3': {'word':'orange'},
 }
 
-
-def abort_if_word_doesnt_exist(word_id):
-    if word_id not in WORDS:
-        abort(404, message="Word {} doesn't exist".format(word_id))
+FILTERED = {
+    
+}
 
 parser = reqparse.RequestParser()
 parser.add_argument('word')
 parser.add_argument('pattern')
 
 
-# # Todo
-# # shows a single todo item and lets you delete a todo item
-# class Todo(Resource):
-#     def get(self, todo_id):
-#         abort_if_todo_doesnt_exist(todo_id)
-#         return TODOS[todo_id]
-
-#     def delete(self, todo_id):
-#         abort_if_todo_doesnt_exist(todo_id)
-#         del TODOS[todo_id]
-#         return '', 204
-
-#     def put(self, todo_id):
-#         args = parser.parse_args()
-#         task = {'task': args['task']}
-#         TODOS[todo_id] = task
-#         return task, 201
-
 class FilterWord(Resource):
     def get(self):
         args = parser.parse_args()
         pattern=args['pattern']
+        print('GET', pattern)
         for id in WORDS:
             word=(WORDS[id]['word'])
+            # xyz = match(pattern,word)
+            # print('match',pattern,word,xyz)
             if match(pattern,word):
-                return word,201
+                FILTERED[pattern] = {'word': word}
+        return FILTERED
 
 
 
@@ -59,6 +44,8 @@ class WordList(Resource):
 
     def post(self):
         args = parser.parse_args()
+        postword = args['word']
+        print('Post Route, args', args)
         word_id = int(max(WORDS.keys()).lstrip('word')) + 1
         word_id = 'word%i' % word_id
         WORDS[word_id] = {'word': args['word']}
@@ -74,7 +61,7 @@ api.add_resource(FilterWord, '/words/filter')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
 
 #----------------------
 # from flask import Flask
