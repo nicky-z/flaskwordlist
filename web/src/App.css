@@ -29,82 +29,68 @@ body {
 .App-link {
   color: #61dafb;
 }
-.button{
-  color: #fff !important;
-	text-transform: uppercase;
-	background: #79b7ce;
-	padding: 9px;
-  margin-right: 0px;
-  margin-left:15px;
-  margin-top:20px;
-	border-radius: 5px;
-  border:0.2em solid  #60a3bc; 
-  float:left;
+.flexbox-container{
+  display:flex;
+  gap: 4em;
+  flex-wrap:wrap;
+  align-items: center;
+}
+.flexbox-forms{
+  flex: 1 1 30%;
+  min-width:30ch;
+  max-width: 45ch;
 }
 
+form {
+  margin-top: 50px;
+  margin-left: 60px; 
+  padding:10px; 
+  border: 2px solid #6a9fb3; 
+  border-radius: 5px;
+}
 
 input {
-  width: 200px;
   padding: 10px;
-  margin: 20px;
-  float: left;
+  margin: 10px;
   border:0.2em solid  #82b2c4;
   border-radius: 5px;
   text-align:center;
 }
-p {
-  width: 260px;
-  padding: 20px;
-  margin: 10px;
-  border:0.1em solid  #60a3bc; 
-  border-radius: 5px;
-  font-size: large;
-  font-weight: 500;
-  color:rgb(60, 85, 107);
+button{
+  color: #fff !important;
+	text-transform: uppercase;
+	background: #79b7ce;
+	padding: 8px;
+	border-radius: 5px;
+  border:0.2em solid  #60a3bc; 
+
 }
-span {
-  width:20%;
-  float:right;
-  text-align:center;
-  margin-top: 80px;
-  margin-right: 1030px;
-  padding:20px;
+.flexbox-word-list {
+  flex: 1 1 50%;
+  min-width:35ch;
+  max-width: 60ch;
+}
+.title {
+  margin-top: 30px;
+  margin-left:100px;
+  margin-right: 100px;
+  padding: 10px;
   font-size:xx-large;
   font-weight: 600;
   color:rgb(60, 85, 107);
   border: 2px solid #6a9fb3;
   border-radius: 10px;
 }
-
-
-.form {
-  width: 34%;
-  margin-top: 20px;
-  margin-left: 60px;
-  float:left;
-  padding:50px;
-  /* border: 2px solid #6a9fb3; 
-  border-radius: 5px; */
+p {
+  padding: 20px;
+  margin : 30px;
+  border:0.1em solid  #60a3bc; 
+  border-radius: 5px;
+  font-size: large;
+  font-weight: 500;
+  color:rgb(60, 85, 107);
 }
 
-.list{
-  width:20%;
-  float:right;
-  text-align:center;
-  margin-top: 30px;
-  margin-right: 450px;
-  padding:20px;
-  /* border: 2px solid #6a9fb3; */
 
-}
 
-/* @keyframes App-logo-spin {cd ~/.ssh
-  ssh-keygen
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
 

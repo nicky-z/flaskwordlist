@@ -55,25 +55,29 @@ function handleFilter(event) {
 
   return (
     <div className="App">
-      <span>Word List</span>
-      <div className="list">
-        {words.map((word,idx) => <p key={idx}>{word}</p>)}
-      </div>
-      <div className="form">
-        <form>
-          <input
-            placeholder = "add word"
-            onChange={(evt) =>{setNewWord(evt.target.value)}}
-          />
-          <button className="button" onClick={handleSubmit}> Add Word </button>
-        </form>
-        <form>
-          <input
-            placeholder = "filter for..."
-            onChange={(evt) =>{setFilter(evt.target.value)}}
-          />
-          <button className="button" onClick={handleFilter}> Filter </button>
-        </form>
+      <div className= "flexbox-container">
+        <div className = "flexbox-forms">
+          <form>
+            <input
+              placeholder = "add word"
+              onChange={(evt) =>{setNewWord(evt.target.value)}}
+            />
+            <button onClick={handleSubmit}> Add Word </button>
+          </form>
+          <form>
+            <input
+              placeholder = "filter for..."
+              onChange={(evt) =>{setFilter(evt.target.value)}}
+            />
+            <button onClick={handleFilter}> Filter </button>
+          </form>
+        </div>
+        <div className = "flexbox-word-list">
+          <div className = "title">Word List</div>
+          <div className="list">
+            {words.map((word,idx) => <p key={idx}>{word}</p>)}
+          </div>
+        </div>
       </div>
     </div>
   );
